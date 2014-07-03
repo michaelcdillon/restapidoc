@@ -38,6 +38,14 @@ class APIUtils {
             controllersClasses.add(controllerClass)
         }
 
+        // Retrieve all services (for method doc)
+        log.info "Retrieve Service..."
+        grailsApplication.serviceClasses.findAll {it.clazz.isAnnotationPresent (RestApi)}
+                .each { serviceArtefact ->
+            def serviceClass = serviceArtefact.getClazz ()
+            controllersClasses.add (serviceClass)
+        }
+
         //Retrieve all domains (for object doc)
         log.info "Retrieve Domain..."
         Set<Class<?>> objectClasses = new LinkedList<Class<?>>()

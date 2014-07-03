@@ -45,11 +45,12 @@ grails.project.dependency.resolution = {
     plugins {
         build ":tomcat:7.0.42"
 
+        compile ":asset-pipeline:1.8.3"
+
         compile ":plugin-config:0.2.0"
 
 
-        build(":release:3.0.1",
-              ":rest-client-builder:1.0.3") {
+        build(":rest-client-builder:1.0.3") {
             export = false
         }
     }
